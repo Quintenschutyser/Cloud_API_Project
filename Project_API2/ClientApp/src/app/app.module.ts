@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonModule } from 'primeng/button';
 import { WorldComponent } from './world/world.component';
 
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { WorldComponent } from './world/world.component';
     FormsModule,
     BrowserAnimationsModule,
     ButtonModule,
+    CardModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },

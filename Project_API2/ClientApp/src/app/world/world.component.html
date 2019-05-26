@@ -1,3 +1,35 @@
-<p>
-  world works!
-</p>
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-4">
+    <div class="ui-inputgroup">
+      <button pButton type="button" label="Search"></button>
+      <input type="text" pInputText placeholder="Keyword">
+    </div>
+  </div>
+</div>
+
+<p-card title="{{LandArray[0].name}}">
+  <div class="d-flex flex-wrap justify-content-between">
+    <div class="align-self-start">
+      <p><b>Capital</b>: {{LandArray[0].capital}}</p>
+      <p><b>Money</b>: {{LandArray[0].currencies[0].code}}</p>
+      <p><b>Money symbol</b> : {{LandArray[0].currencies[0].symbol}}</p>
+      <p><b>Langue</b>:</p>      
+      <ol>        
+        <li *ngFor="let langue of LandArray[0].languages" >
+          <p>{{langue.name}}</p>
+          <p>{{langue.nativeName}}</p>
+          <p>{{langue.iso639_1}}</p>
+        </li>
+      </ol>
+      <b>extra Info</b>
+      <p><b>Tel</b>: +{{LandArray[0].callingCodes}}</p>
+      <p><b>population</b>: {{LandArray[0].population}}</p>
+    </div>
+    <div class="align-self-center">
+      <img class="img-fluid" src="{{LandArray[0].flag}}" alt="flag of country"/>
+    </div>
+  </div>
+  <p-footer>
+    <button (click)="getInfoOf()" pButton type="button" label="Search on Map" icon="pi pi-check" style="margin-right: .25em"></button>
+  </p-footer>
+</p-card>

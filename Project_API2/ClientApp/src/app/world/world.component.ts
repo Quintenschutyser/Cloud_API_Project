@@ -41,4 +41,8 @@ export class WorldComponent implements OnInit {
     view.setCenter();
     view.setZoom(8);
   }
+
+  getInfoOf() {
+    console.log(this.LandArray[0].currencies[0].code);
+  }
 }
