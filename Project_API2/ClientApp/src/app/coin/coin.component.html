@@ -1,0 +1,15 @@
+
+<div class="d-flex justify-content-center">
+  <div class="ui-inputgroup">
+    <input #base type="text" pInputText placeholder="base" maxlength="3" style="width:80px; text-transform:uppercase">
+    <button (click)="convertTo(base.value.toUpperCase(), convert.value.toUpperCase())" pButton type="button" label="Convert to"></button>
+    <input #convert type="text" pInputText placeholder="convert" maxlength="3" style="width:80px; text-transform:uppercase ">
+  </div>
+</div>
+
+
+<p>coin works!</p>
+<br />
+<p>result: {{CoinArray.rates}}</p>
+<p>test</p>
+
