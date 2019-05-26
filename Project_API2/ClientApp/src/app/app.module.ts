@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { WorldComponent } from './world/world.component';
 
 import { CardModule } from 'primeng/card';
+import { CoinComponent } from './coin/coin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CardModule } from 'primeng/card';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    WorldComponent
+    WorldComponent,
+    CoinComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
