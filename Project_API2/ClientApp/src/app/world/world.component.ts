@@ -11,6 +11,7 @@ declare var ol: any;
 })
 export class WorldComponent implements OnInit {
   LandArray: RootObject;
+  LandSpecifiek: RootObject;
   SearchCountry: string;
 
   latitude: number = 50.83333333;
@@ -75,5 +76,12 @@ export class WorldComponent implements OnInit {
 
   getInfoOf() {
     console.log(this.LandArray[0].currencies[0].code);
+  }
+
+  getSpecLand(alpha : string) {
+    this.WorldSvc.getSpecifiek(alpha).subscribe(land => {
+      this.LandSpecifiek = land;
+      console.log(land);
+    })
   }
 }

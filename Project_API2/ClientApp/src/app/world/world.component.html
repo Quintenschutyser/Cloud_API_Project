@@ -51,8 +51,8 @@
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </div>
       <p-footer>
-        <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
-        <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
+        <button (click)="goToUrl(land.name)" pButton type="button" label="Google Maps" icon="pi pi-search" style="margin-right: .25em"></button>
+        <button (click)="getSpecLand(land.alpha3Code)" pButton type="button" label="More" icon="pi pi-ellipsis-h" class="ui-button-secondary"></button>
       </p-footer>
     </p-card>
 </div>
