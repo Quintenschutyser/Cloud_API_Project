@@ -10,11 +10,12 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ButtonModule } from 'primeng/button';
 import { WorldComponent } from './world/world.component';
-
-import { CardModule } from 'primeng/card';
 import { CoinComponent } from './coin/coin.component';
+
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CoinComponent } from './coin/coin.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'world', component: WorldComponent },
+      { path: 'money', component: CoinComponent},
     ])
   ],
   providers: [],
