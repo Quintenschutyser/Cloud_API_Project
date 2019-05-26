@@ -12,10 +12,20 @@ export class CoinComponent implements OnInit {
   constructor(private CoinSvc: CoinApiService) { }
 
   ngOnInit() {
-    this.CoinSvc.getInfo().subscribe(coin => {
+    this.CoinSvc.getInfo("EUR", "").subscribe(coin => {
       this.CoinArray = coin;
       console.log(coin);
     })
+  }
+
+  convertTo(base: string, convert: string) {
+    this.CoinSvc.getInfo(base, convert ).subscribe(coin => {
+      this.CoinArray = coin;
+      console.log(coin);
+    })
+    console.log("convertTo works");
+    console.log(base);
+    console.log(convert)
   }
 
 }

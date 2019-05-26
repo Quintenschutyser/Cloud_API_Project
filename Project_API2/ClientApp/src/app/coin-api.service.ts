@@ -11,19 +11,14 @@ export class CoinApiService {
 
   baseCoin: string = "EUR";
 
-  getInfo(): Observable<RootObject> {
-    return this._http.get<RootObject>("https://api.exchangeratesapi.io/latest?symbols=USD,GBP")
+  getInfo(base : string, convert : string): Observable<RootObject> {
+    return this._http.get<RootObject>("https://api.exchangeratesapi.io/latest?symbols=" + convert + "&base=" + base)
   }
   info: RootObject;
 }
 
-export interface Rates {
-  USD: number;
-  GBP: number;
-}
-
 export interface RootObject {
   base: string;
-  rates: Rates;
+  rates: number[];
   date: string;
 }
