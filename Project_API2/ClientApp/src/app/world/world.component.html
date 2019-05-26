@@ -30,9 +30,10 @@
     </div>
   </div>
   <p-footer>
-    <button (click)="getInfoOf()" pButton type="button" label="Search on Map" icon="pi pi-check" style="margin-right: .25em"></button>
+    <button (click)="goToUrl(LandArray[0].name)" pButton type="button" label="Search on Google Maps" icon="pi pi-check" style="margin-right: .25em"></button>
   </p-footer>
 </p-card>
+
 <br />
 <div class="d-flex flex-wrap justify-content-center">
     <p-card *ngFor="let land of LandArray" title="{{land.name}}" subtitle="Subtitle" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
@@ -56,3 +57,4 @@
     </p-card>
 </div>
 <br />
+<div id="map" class="map"></div>

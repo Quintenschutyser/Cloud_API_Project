@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CountryAPiService, RootObject } from "../country-api.service";
 import { Window } from 'selenium-webdriver';
 
+declare var ol: any;
+
 @Component({
   selector: 'app-world',
   templateUrl: './world.component.html',
@@ -22,6 +24,20 @@ export class WorldComponent implements OnInit {
       this.LandArray = land;
       console.log(land);
     })
+
+    //voor openstreetmap
+    this.map = new ol.Map({
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([73.8567, 18.5204]),
+        zoom: 8
+      })
+    });
   }
 
   setCountry(country: string) {
@@ -40,6 +56,21 @@ export class WorldComponent implements OnInit {
     var view = this.map.getView();
     view.setCenter();
     view.setZoom(8);
+  }
+  showMap() {
+    //voor openstreetmap
+    this.map = new ol.Map({
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([73.8567, 18.5204]),
+        zoom: 8
+      })
+    });
   }
 
   getInfoOf() {
