@@ -25,7 +25,7 @@
       <p><b>Tel</b>: +{{LandArray[0].callingCodes}}</p>
       <p><b>population</b>: {{LandArray[0].population}}</p>
     </div>
-    <div class="align-self-center">
+    <div class="align-self-center" style="max-width:50%">
       <img class="img-fluid" src="{{LandArray[0].flag}}" alt="flag of country"/>
     </div>
   </div>
@@ -34,10 +34,10 @@
   </p-footer>
 </p-card>
 <br />
-<div>
-    <p-card *ngFor="let land of LandArray" title="{{land.name}}" subtitle="Subtitle" [style]="{width: '360px'}" styleClass="ui-card-shadow">
+<div class="d-flex flex-wrap justify-content-center">
+    <p-card *ngFor="let land of LandArray" title="{{land.name}}" subtitle="Subtitle" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
       <p-header>
-        <img src="{{land.flag}}" alt="flag">
+        <img src="{{land.flag}}" alt="flag" style="border:10px solid black; height:auto; width:100%">
       </p-header>
       <div>
         Capital: {{land.capital}} <br>
