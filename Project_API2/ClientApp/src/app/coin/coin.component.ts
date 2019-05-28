@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoinApiService, RootObject } from '../coin-api.service';
+import { log } from 'util';
 
 @Component({
   selector: 'app-coin',
@@ -8,6 +9,8 @@ import { CoinApiService, RootObject } from '../coin-api.service';
 })
 export class CoinComponent implements OnInit {
   CoinArray: RootObject;
+  convData: number = 1;
+  baseData: number = 1;
 
   constructor(private CoinSvc: CoinApiService) { }
 
@@ -21,11 +24,8 @@ export class CoinComponent implements OnInit {
   convertTo(base: string, convert: string) {
     this.CoinSvc.getInfo(base, convert ).subscribe(coin => {
       this.CoinArray = coin;
-      console.log(coin);
+      //console.log(coin);
     })
-    console.log("convertTo works");
-    console.log(base);
-    console.log(convert)
+    this.convData = this.CoinArray.rates[convert] * this.baseData;
   }
-
 }

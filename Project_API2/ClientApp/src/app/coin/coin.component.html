@@ -1,15 +1,17 @@
 
-<div class="d-flex justify-content-center">
-  <div class="ui-inputgroup">
-    <input #base type="text" pInputText placeholder="base" maxlength="3" style="width:80px; text-transform:uppercase">
+<div class="d-flex justify-content-center flex-column">
+  <div class="d-flex justify-content-center">
+    <input #base type="text" pInputText placeholder="base" maxlength="3" style="width:80px; text-transform:uppercase;">
     <button (click)="convertTo(base.value.toUpperCase(), convert.value.toUpperCase())" pButton type="button" label="Convert to"></button>
     <input #convert type="text" pInputText placeholder="convert" maxlength="3" style="width:80px; text-transform:uppercase ">
+  </div>
+  <div class="d-flex justify-content-center">
+    <input #baseValue type="text" pInputText style="width:80px; text-transform:uppercase" value="{{baseData | currency : base.value }}">
+    <button pButton type="button" label="Convert to" disable="True" style="visibility: hidden"></button>
+    <input #converValue type="text" pInputText style="width:80px; text-transform:uppercase" value="{{convData | currency : convert.value }}" disabled="disabled">
   </div>
 </div>
 
 
-<p>coin works!</p>
-<br />
-<p>result: {{CoinArray.rates['USD']}}</p>
-<p>test</p>
+<!--<p>result: {{CoinArray.rates[convert.value]}}</p>-->
 
