@@ -30,9 +30,10 @@
     </div>
   </div>
   <p-footer>
-    <button (click)="getInfoOf()" pButton type="button" label="Search on Map" icon="pi pi-check" style="margin-right: .25em"></button>
+    <button (click)="goToUrl(LandArray[0].name)" pButton type="button" label="Search on Google Maps" icon="pi pi-check" style="margin-right: .25em"></button>
   </p-footer>
 </p-card>
+
 <br />
 <div class="d-flex flex-wrap justify-content-center">
     <p-card *ngFor="let land of LandArray" title="{{land.name}}" subtitle="Subtitle" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
@@ -50,9 +51,10 @@
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </div>
       <p-footer>
-        <button pButton type="button" label="Save" icon="pi pi-check" style="margin-right: .25em"></button>
-        <button pButton type="button" label="Cancel" icon="pi pi-times" class="ui-button-secondary"></button>
+        <button (click)="goToUrl(land.name)" pButton type="button" label="Google Maps" icon="pi pi-search" style="margin-right: .25em"></button>
+        <button (click)="getSpecLand(land.alpha3Code)" pButton type="button" label="More" icon="pi pi-ellipsis-h" class="ui-button-secondary"></button>
       </p-footer>
     </p-card>
 </div>
 <br />
+<div id="map" class="map"></div>

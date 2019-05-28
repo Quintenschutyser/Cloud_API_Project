@@ -15,6 +15,7 @@ import { CoinComponent } from './coin/coin.component';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { AccordionModule } from 'primeng/accordion';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { CardModule } from 'primeng/card';
     BrowserAnimationsModule,
     ButtonModule,
     CardModule,
+    AccordionModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
