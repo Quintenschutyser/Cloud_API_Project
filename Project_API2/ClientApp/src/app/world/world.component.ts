@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountryAPiService, RootObject } from "../country-api.service";
 import { Window } from 'selenium-webdriver';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 declare var ol: any;
 
@@ -23,6 +24,9 @@ export class WorldComponent implements OnInit {
   ngOnInit() {
     this.WorldSvc.getInfo(this.SearchCountry).subscribe(land => {
       this.LandArray = land;
+      this.longitude = this.LandArray[0].latlng[0];
+      this.latitude = this.LandArray[0].latlng[1];
+      //this.setCenter(this.longitude, this.latitude);
       console.log(land);
     })
 
@@ -53,7 +57,7 @@ export class WorldComponent implements OnInit {
     //window.open("https://www.google.com/maps/?ll=" + this.Land[0].latlng[0] + "," + this.Land[0].latlng[1], "_blank");
     window.open("https://www.google.ca/maps/place/" + land);
   }
-  setCenter() {
+  setCenter(long : number, lat: number) {
     var view = this.map.getView();
     view.setCenter();
     view.setZoom(8);

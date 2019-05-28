@@ -14,7 +14,7 @@ export class CoinComponent implements OnInit {
   ngOnInit() {
     this.CoinSvc.getInfo("EUR", "").subscribe(coin => {
       this.CoinArray = coin;
-      console.log(coin);
+      console.log(coin.rates);
     })
   }
 
