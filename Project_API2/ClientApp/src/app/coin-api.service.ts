@@ -19,41 +19,6 @@ export class CoinApiService {
 
 export interface RootObject {
   base: string;
-  rates: Rates;
+  rates: number;
   date: string;
-}
-
-export interface Rates {
-  BGN: number;
-  NZD: number;
-  ILS: number;
-  RUB: number;
-  CAD: number;
-  USD: number;
-  PHP: number;
-  CHF: number;
-  ZAR: number;
-  AUD: number;
-  JPY: number;
-  TRY: number;
-  HKD: number;
-  MYR: number;
-  THB: number;
-  HRK: number;
-  NOK: number;
-  IDR: number;
-  DKK: number;
-  CZK: number;
-  HUF: number;
-  GBP: number;
-  MXN: number;
-  KRW: number;
-  ISK: number;
-  SGD: number;
-  BRL: number;
-  PLN: number;
-  INR: number;
-  RON: number;
-  CNY: number;
-  SEK: number;
 }
