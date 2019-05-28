@@ -9,7 +9,7 @@ import { log } from 'util';
 })
 export class CoinComponent implements OnInit {
   CoinArray: RootObject;
-  converData: number = 1;
+  convData: number = 1;
   baseData: number = 1;
 
   constructor(private CoinSvc: CoinApiService) { }
@@ -26,6 +26,6 @@ export class CoinComponent implements OnInit {
       this.CoinArray = coin;
       //console.log(coin);
     })
-    this.converData = this.CoinArray.rates[convert] * this.baseData;
+    this.convData = this.CoinArray.rates[convert] * this.baseData;
   }
 }

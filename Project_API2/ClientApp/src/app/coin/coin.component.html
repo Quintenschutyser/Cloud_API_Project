@@ -6,15 +6,12 @@
     <input #convert type="text" pInputText placeholder="convert" maxlength="3" style="width:80px; text-transform:uppercase ">
   </div>
   <div class="d-flex justify-content-center">
-    <input #baseValue type="text" pInputText maxlength="3" style="width:80px; text-transform:uppercase" [(ngModel)]="baseData" >
-    <button pButton type="button" label="Convert to" disable="True" style="visibility: hidden" ></button>
-    <input #converValue type="text" pInputText maxlength="3" style="width:80px; text-transform:uppercase" [(ngModel)]="converData" disabled="disabled">
+    <input #baseValue type="text" pInputText style="width:80px; text-transform:uppercase" value="{{baseData | currency : base.value }}">
+    <button pButton type="button" label="Convert to" disable="True" style="visibility: hidden"></button>
+    <input #converValue type="text" pInputText style="width:80px; text-transform:uppercase" value="{{convData | currency : convert.value }}" disabled="disabled">
   </div>
 </div>
 
 
-<p>coin works!</p>
-<br />
-<p>result: {{CoinArray.rates[convert.value]}}</p>
-<p>test</p>
+<!--<p>result: {{CoinArray.rates[convert.value]}}</p>-->
 
