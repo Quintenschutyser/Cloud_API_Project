@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project_API2.Model
 {
-    public class DBInitializer : DbContext
+    public class DBInitializer
     {
         public static void Initialize(LibraryContext context)
         {
@@ -18,7 +18,13 @@ namespace Project_API2.Model
                     Name = "Belgium",
                     Currency = "EUR"
                 };
+                var l2 = new Land()
+                {
+                    Name = "The Netherlands",
+                    Currency = "EUR"
+                };
                 context.Land.Add(l1);
+                context.Land.Add(l2);
                 context.SaveChanges();
             }
         }

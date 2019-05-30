@@ -34,13 +34,10 @@ namespace Project_API2
                     Configuration.GetConnectionString("defaultConnection")
                 )
             );
-
-            services.AddMvc();
-            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, LibraryContext context)
         {
             if (env.IsDevelopment())
             {
@@ -50,16 +47,10 @@ namespace Project_API2
             {
                 app.UseExceptionHandler("/Error");
             }
-
+            DBInitializer.Initialize(context);
+            app.UseMvc();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
 
             app.UseSpa(spa =>
             {

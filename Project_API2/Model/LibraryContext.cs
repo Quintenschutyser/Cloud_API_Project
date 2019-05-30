@@ -8,11 +8,9 @@ namespace Project_API2.Model
 {
     public class LibraryContext : DbContext
     {
-        public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)
-        {
+        public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)  {
 
         }
         public DbSet<Land> Land { get; set; }
-        //public DbSet<>
     }
 }
