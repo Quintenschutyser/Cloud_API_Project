@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Project_API2.Model;
 
 namespace Project_API2
 {
@@ -26,6 +28,15 @@ namespace Project_API2
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<LibraryContext>(
+                options => options.UseSqlServer(
+                    Configuration.GetConnectionString("defaultConnection")
+                )
+            );
+
+            services.AddMvc();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
