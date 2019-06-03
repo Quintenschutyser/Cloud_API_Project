@@ -1,6 +1,59 @@
+<p-accordion>
+  <p-accordionTab header="Add user">
+    <div class="d-flex flex-column">
+      <div class="d-flex justify-content-around flex-wrap" style="margin-bottom:10px">
+        <div class="d-flex justify-content-center">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input [(ngModel)]='firstnametest' type="text" pInputText placeholder="First Name">
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input [(ngModel)]='lastnametest' type="text" pInputText placeholder="Last Name">
+          </div>
+        </div>
+      </div>      
+      <button pButton [disabled]="!(firstnametest && lastnametest)" type="button" label="Sent data"
+              class="ui-button-rounded" (click)="addUser(firstnametest, lastnametest)"></button>
+    </div>   
+  </p-accordionTab>
+  <p-accordionTab header="Add Land">
+    <div class="d-flex flex-column">
+      <div>
+        <div class="ui-g ui-fluid">
+          <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
+              <input [(ngModel)]="nameLandNG" type="text" pInputText placeholder="naam land">
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
+              <input [(ngModel)]="alpha3codeNG" type="text" pInputText placeholder="Alpha 3 Code">
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+              <input [(ngModel)]="currencyNG" type="text" pInputText placeholder="Currency">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button pButton [disabled]="!(currencyNG && alpha3codeNG && nameLandNG)" type="button" label="Primary" class="ui-button-rounded"
+                     (click)="addLand(nameLandNG,alpha3codeNG,currencyNG)"></button>
+    </div>    
+  </p-accordionTab>
+</p-accordion>
+
 <p>Country's</p>
 <div class="d-flex flex-wrap justify-content-center">
-  <p-card *ngFor="let data of dataArrayLand" title="{{data.name}}" subtitle="Subtitle" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
+  <p-card *ngFor="let data of dataArrayLand" title="{{data.name}}" subtitle="id: {{data.id}}" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
     <div>
       currency: {{data.currency}}
       <br />
@@ -11,7 +64,7 @@
       Some quick example text to build on the card title and make up the bulk of the card's content.
     </div>
     <p-footer>
-      <button pButton type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
+      <button pButton (click)="dellLand(data.id)" type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
     </p-footer>
   </p-card>
 </div>
@@ -28,7 +81,7 @@
       Some quick example text to build on the card title and make up the bulk of the card's content.
     </div>
     <p-footer>
-      <button pButton type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
+      <button pButton (click)="dellUser(data.id)" type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
     </p-footer>
   </p-card>
 </div>
