@@ -20,6 +20,7 @@ export class OwnApiService {
   }
 
   addLand(land: RootLand): Observable<RootLand> {
+    console.log(land);
     return this._http.post<RootLand>("http://localhost:53438/api/v2/land", land);
   }
   addUser(User: RootUser): Observable<RootUser> {
@@ -27,13 +28,14 @@ export class OwnApiService {
     return this._http.post<RootUser>("http://localhost:53438/api/v2/user", User);  
   }
 
-  dellLand(id: number) {
+  delLand(id: number) {
     console.log(id);
-    //return this._http.delete("http://localhost:53438/api/v2/user")
+    return this._http.delete("http://localhost:53438/api/v2/user")
   }
-  dellUser(id: number) {
+  delUser(id: number) {
     console.log(id);
-    //return this._http.delete("http://localhost:53438/api/v2/user")
+    console.log("http://localhost:53438/api/v2/user/" + id);
+    return this._http.delete("http://localhost:53438/api/v2/user/" + id);
   }
   info: RootLand;
   info2: RootUser;

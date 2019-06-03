@@ -20,13 +20,40 @@
     </div>   
   </p-accordionTab>
   <p-accordionTab header="Add Land">
-    Content 2
+    <div class="d-flex flex-column">
+      <div>
+        <div class="ui-g ui-fluid">
+          <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
+              <input [(ngModel)]="nameLandNG" type="text" pInputText placeholder="naam land">
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-home"></i></span>
+              <input [(ngModel)]="alpha3codeNG" type="text" pInputText placeholder="Alpha 3 Code">
+            </div>
+          </div>
+
+          <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+              <span class="ui-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+              <input [(ngModel)]="currencyNG" type="text" pInputText placeholder="Currency">
+            </div>
+          </div>
+        </div>
+      </div>
+      <button pButton [disabled]="!(currencyNG && alpha3codeNG && nameLandNG)" type="button" label="Primary" class="ui-button-rounded"
+                     (click)="addLand(nameLandNG,alpha3codeNG,currencyNG)"></button>
+    </div>    
   </p-accordionTab>
 </p-accordion>
 
 <p>Country's</p>
 <div class="d-flex flex-wrap justify-content-center">
-  <p-card *ngFor="let data of dataArrayLand" title="{{data.name}}" subtitle="Subtitle" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
+  <p-card *ngFor="let data of dataArrayLand" title="{{data.name}}" subtitle="id: {{data.id}}" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
     <div>
       currency: {{data.currency}}
       <br />

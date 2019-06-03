@@ -12,7 +12,12 @@ export class ShowdataComponent implements OnInit {
   dataArrayLand: RootLand;
   dataArrayUser: RootUser;
 
-  createLand: RootLand;
+  createLand: RootLand = {
+    'id': 1,
+    'alpha3Code': "EUR",
+    'name': "test",
+    'currency': "EUR"
+  };
   createUser: RootUser = {
     'id': 1,
     'firstName': "st",
@@ -24,11 +29,9 @@ export class ShowdataComponent implements OnInit {
   ngOnInit() {
     this.dataSvc.getLands().subscribe(land => {
       this.dataArrayLand = land;
-      console.log(land);
     })
     this.dataSvc.getUsers().subscribe(user => {
       this.dataArrayUser = user;
-      console.log(user);
     })
   }
 
@@ -38,10 +41,16 @@ export class ShowdataComponent implements OnInit {
     this.dataSvc.addUser(this.createUser);
   }
 
+  addLand(name: string, code: string, curr: string) {
+    this.createLand.name = name;
+    this.createLand.alpha3Code = code;
+    this.createLand.currency = curr;
+    this.dataSvc.addLand(this.createLand);
+  }
   dellLand(id: number) {
-    this.dataSvc.dellLand(id);
+    this.dataSvc.delLand(id);
   }
   dellUser(id: number) {
-    this.dataSvc.dellUser(id);
+    this.dataSvc.delUser(id);
   }
 }
