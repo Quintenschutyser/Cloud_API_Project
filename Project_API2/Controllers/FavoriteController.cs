@@ -18,21 +18,21 @@ namespace Project_API2.Controllers
             _context = ctxt;
         }
 
-        [HttpGet]
+        [HttpGet] //opvragen van gegevens
         public List<Land> GetLands(string name, string Alpha3Code,int? id, string Currency, int Page, string sortBy, 
                                             int PageSize = 10, string direction = "asc")
         {
             IEnumerable<Land> query = _context.Land.ToList();
 
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrWhiteSpace(name))
                 query = query.Where(b => b.Name == name);
-            if (!string.IsNullOrEmpty(Alpha3Code))
+            if (!string.IsNullOrWhiteSpace(Alpha3Code))
                 query = query.Where(b => b.Alpha3Code == Alpha3Code);
-            if (!string.IsNullOrEmpty(Currency))
+            if (!string.IsNullOrWhiteSpace(Currency))
                 query = query.Where(b => b.Currency == Currency);
             if (id != null)
                 query = query.Where(b => b.Id == id);
-            if (string.IsNullOrEmpty(sortBy))
+            if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "name";
 
             switch (sortBy.ToLower())
@@ -70,6 +70,17 @@ namespace Project_API2.Controllers
                 PageSize = 100;
             query = query.Take(PageSize);
 
+            return query.ToList();
+        }
+
+        [Route("filter")]
+        [HttpGet] //opvragen met filter
+        public List<Land> GetFilterLand(string currency)
+        {
+            IQueryable<Land> query = _context.Land;
+
+            if (!string.IsNullOrWhiteSpace(currency))
+                query = query.Where(b => b.Currency == currency);
             return query.ToList();
         }
 
