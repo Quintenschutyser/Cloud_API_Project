@@ -16,6 +16,7 @@ import { CoinComponent } from './coin/coin.component';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
+import { ShowdataComponent } from './showdata/showdata.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AccordionModule } from 'primeng/accordion';
     CounterComponent,
     FetchDataComponent,
     WorldComponent,
-    CoinComponent
+    CoinComponent,
+    ShowdataComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,7 +43,8 @@ import { AccordionModule } from 'primeng/accordion';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'world', component: WorldComponent },
-      { path: 'money', component: CoinComponent},
+      { path: 'money', component: CoinComponent },
+      { path: 'data', component: ShowdataComponent },
     ])
   ],
   providers: [],
