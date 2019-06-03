@@ -43,7 +43,8 @@ import { ShowdataComponent } from './showdata/showdata.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'world', component: WorldComponent },
-      { path: 'money', component: CoinComponent},
+      { path: 'money', component: CoinComponent },
+      { path: 'data', component: ShowdataComponent },
     ])
   ],
   providers: [],

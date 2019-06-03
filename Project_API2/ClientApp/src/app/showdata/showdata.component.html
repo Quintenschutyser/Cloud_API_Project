@@ -1,3 +1,34 @@
-<p>
-  showdata works!
-</p>
+<p>Country's</p>
+<div class="d-flex flex-wrap justify-content-center">
+  <p-card *ngFor="let data of dataArrayLand" title="{{data.name}}" subtitle="Subtitle" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
+    <div>
+      currency: {{data.currency}}
+      <br />
+      alpha3Code: {{data.alpha3Code}}
+      <br />
+      <br />
+      Some quick example text to build on the card title and make up the bulk of the card's content.
+      Some quick example text to build on the card title and make up the bulk of the card's content.
+    </div>
+    <p-footer>
+      <button pButton type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
+    </p-footer>
+  </p-card>
+</div>
+<p>User</p>
+<div class="d-flex flex-wrap justify-content-center">
+  <p-card *ngFor="let data of dataArrayUser" title="id = {{data.id}}"  [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
+    <div>
+      firstName: {{data.firstName}}
+      <br />
+      lastName: {{data.lastName}}
+      <br />
+      <br />
+      Some quick example text to build on the card title and make up the bulk of the card's content.
+      Some quick example text to build on the card title and make up the bulk of the card's content.
+    </div>
+    <p-footer>
+      <button pButton type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
+    </p-footer>
+  </p-card>
+</div>
