@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwnApiService, RootUser, RootLand } from "../own-api.service";
+import { log } from 'util';
 
 @Component({
   selector: 'app-showdata',
@@ -10,6 +11,9 @@ export class ShowdataComponent implements OnInit {
 
   dataArrayLand: RootLand;
   dataArrayUser: RootUser;
+
+  createLand: RootLand;
+  createUser: RootUser = {};
 
   constructor(private dataSvc: OwnApiService) { }
 
@@ -22,6 +26,12 @@ export class ShowdataComponent implements OnInit {
       this.dataArrayUser = user;
       console.log(user);
     })
+  }
+
+  addLand(first: string, last: string) {
+    this.createUser.firstName = first;
+    this.createUser.lastName = last;
+    this.dataSvc.addUser(this.createUser);
   }
 
 }

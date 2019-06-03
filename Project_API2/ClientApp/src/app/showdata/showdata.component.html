@@ -1,3 +1,29 @@
+<p-accordion>
+  <p-accordionTab header="Add user">
+    <div class="d-flex flex-column">
+      <div class="d-flex justify-content-around flex-wrap" style="margin-bottom:10px">
+        <div class="d-flex justify-content-center">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input [(ngModel)]='firstnametest' type="text" pInputText placeholder="First Name">
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input [(ngModel)]='lastnametest' type="text" pInputText placeholder="Last Name">
+          </div>
+        </div>
+      </div>      
+      <button pButton [disabled]="!(firstnametest && lastnametest)" type="button" label="Sent data"
+              class="ui-button-rounded" (click)="addLand(firstnametest, lastnametest)"></button>
+    </div>   
+  </p-accordionTab>
+  <p-accordionTab header="Add Land">
+    Content 2
+  </p-accordionTab>
+</p-accordion>
+
 <p>Country's</p>
 <div class="d-flex flex-wrap justify-content-center">
   <p-card *ngFor="let data of dataArrayLand" title="{{data.name}}" subtitle="Subtitle" [style]="{width: '360px' }" style="margin:5px" styleClass="ui-card-shadow">
