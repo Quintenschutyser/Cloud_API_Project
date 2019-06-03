@@ -12,5 +12,6 @@ namespace Project_API2.Model
 
         }
         public DbSet<Land> Land { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }

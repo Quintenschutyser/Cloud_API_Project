@@ -115,7 +115,7 @@ namespace Project_API2.Controllers
             return NoContent();
         }
 
-        [HttpPut] // een ladn updaten
+        [HttpPut] // een land updaten
         public IActionResult UpdateLand([FromBody] Land updateLand)
         {
             _context.Land.Update(updateLand);
