@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Project_API2.Model;
 
 namespace Project_API2
 {
@@ -26,10 +28,16 @@ namespace Project_API2
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<LibraryContext>(
+                options => options.UseSqlServer(
+                    Configuration.GetConnectionString("defaultConnection")
+                )
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, LibraryContext context)
         {
             if (env.IsDevelopment())
             {
@@ -39,16 +47,10 @@ namespace Project_API2
             {
                 app.UseExceptionHandler("/Error");
             }
-
+            DBInitializer.Initialize(context);
+            app.UseMvc();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
 
             app.UseSpa(spa =>
             {
