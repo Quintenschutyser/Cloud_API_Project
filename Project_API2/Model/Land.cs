@@ -10,5 +10,6 @@ namespace Project_API2.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public string Currency { get; set; }
+        public string Alpha3Code { get; set; }
     }
 }

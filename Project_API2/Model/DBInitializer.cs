@@ -16,12 +16,14 @@ namespace Project_API2.Model
                 var l1 = new Land()
                 {
                     Name = "Belgium",
-                    Currency = "EUR"
+                    Currency = "EUR",
+                    Alpha3Code = "BEL"
                 };
                 var l2 = new Land()
                 {
                     Name = "The Netherlands",
-                    Currency = "EUR"
+                    Currency = "EUR",
+                    Alpha3Code = "NLD"
                 };
                 context.Land.Add(l1);
                 context.Land.Add(l2);
