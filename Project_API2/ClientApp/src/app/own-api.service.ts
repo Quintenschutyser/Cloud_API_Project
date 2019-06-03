@@ -27,8 +27,13 @@ export class OwnApiService {
     return this._http.post<RootUser>("http://localhost:53438/api/v2/user", User);  
   }
 
-  delLand(id: number) {
-    return this._http.delete("http://localhost:53438/api/v2/user")
+  dellLand(id: number) {
+    console.log(id);
+    //return this._http.delete("http://localhost:53438/api/v2/user")
+  }
+  dellUser(id: number) {
+    console.log(id);
+    //return this._http.delete("http://localhost:53438/api/v2/user")
   }
   info: RootLand;
   info2: RootUser;

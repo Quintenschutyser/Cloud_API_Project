@@ -16,7 +16,7 @@
         </div>
       </div>      
       <button pButton [disabled]="!(firstnametest && lastnametest)" type="button" label="Sent data"
-              class="ui-button-rounded" (click)="addLand(firstnametest, lastnametest)"></button>
+              class="ui-button-rounded" (click)="addUser(firstnametest, lastnametest)"></button>
     </div>   
   </p-accordionTab>
   <p-accordionTab header="Add Land">
@@ -37,7 +37,7 @@
       Some quick example text to build on the card title and make up the bulk of the card's content.
     </div>
     <p-footer>
-      <button pButton type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
+      <button pButton (click)="dellLand(data.id)" type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
     </p-footer>
   </p-card>
 </div>
@@ -54,7 +54,7 @@
       Some quick example text to build on the card title and make up the bulk of the card's content.
     </div>
     <p-footer>
-      <button pButton type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
+      <button pButton (click)="dellUser(data.id)" type="button" label="Verwijder" icon="pi pi-times" style="margin-right: .25em"></button>
     </p-footer>
   </p-card>
 </div>

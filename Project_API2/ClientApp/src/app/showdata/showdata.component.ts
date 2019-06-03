@@ -13,7 +13,11 @@ export class ShowdataComponent implements OnInit {
   dataArrayUser: RootUser;
 
   createLand: RootLand;
-  createUser: RootUser = {};
+  createUser: RootUser = {
+    'id': 1,
+    'firstName': "st",
+    'lastName': "testtest"
+  };
 
   constructor(private dataSvc: OwnApiService) { }
 
@@ -28,10 +32,16 @@ export class ShowdataComponent implements OnInit {
     })
   }
 
-  addLand(first: string, last: string) {
+  addUser(first: string, last: string) {
     this.createUser.firstName = first;
     this.createUser.lastName = last;
     this.dataSvc.addUser(this.createUser);
   }
 
+  dellLand(id: number) {
+    this.dataSvc.dellLand(id);
+  }
+  dellUser(id: number) {
+    this.dataSvc.dellUser(id);
+  }
 }
