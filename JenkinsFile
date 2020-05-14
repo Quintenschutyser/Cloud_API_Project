@@ -1,9 +1,14 @@
 pipeline {
-    agent { label 'master' }
+    agent any
     stages {
-        stage('build') {
+        stage('say hello world') {
             steps {
                 echo "Hello World!"
+            }
+        }
+        stage('Example') {
+            steps {
+                sh 'npm config ls'
             }
         }
     }
