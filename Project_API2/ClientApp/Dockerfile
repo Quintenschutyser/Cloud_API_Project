@@ -7,15 +7,12 @@
 # EXPOSE 7999
 # CMD [ "node", "server.js"]
 
-# stage 1
-
 FROM node:alpine AS websiteDocker
 WORKDIR /app
 COPY . .
-RUN npm install && npm run build
-
-# stage 2
+RUN npm install 
+RUN npm run build
 
 FROM nginx:alpine
-COPY --from=websiteDocker /app/dist/* /usr/share/nginx/html
-# EXPOSE 7999
+COPY --from=websiteDocker /app/dist/* /usr/share/nginx/html/
+EXPOSE 7999
