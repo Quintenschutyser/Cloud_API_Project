@@ -10,7 +10,7 @@
 # stage 1
 
 FROM node:alpine AS websiteDocker
-WORKDIR /src/app
+WORKDIR /app
 COPY . .
 RUN npm install && npm run build
 
@@ -18,4 +18,4 @@ RUN npm install && npm run build
 
 FROM nginx:alpine
 COPY --from=websiteDocker /app/dist/* /usr/share/nginx/html
-EXPOSE 7999
+# EXPOSE 7999
