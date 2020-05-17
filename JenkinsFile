@@ -12,11 +12,6 @@ pipeline {
                 sh 'npm config ls'
             }
         }
-        /*stage('Cloning from Git'){
-            steps{
-                git 'https://github.com/Quintenschutyser/Cloud_API_Project'
-            }
-        }*/
         stage('Checkout'){
             steps{
                 git branch: 'DevOps', url: 'https://github.com/Quintenschutyser/Cloud_API_Project.git'
