@@ -1,15 +1,36 @@
 pipeline {
     agent any
+    tools {nodejs "node"}
     stages {
         stage('say hello world') {
             steps {
                 echo "Hello World!"
             }
         }
-        stage('Example') {
+        stage('npm config') {
             steps {
                 sh 'npm config ls'
             }
         }
+        /*stage('Cloning from Git'){
+            steps{
+                git 'https://github.com/Quintenschutyser/Cloud_API_Project'
+            }
+        }*/
+        stage('Checkout'){
+            steps{
+                git branch: 'DevOps', url: 'https://github.com/Quintenschutyser/Cloud_API_Project.git'
+            }
+        }
+        stage('Install dependencies'){
+            steps {
+                sh 'npm install'
+            }
+        }
+        /*stage('start'){
+            steps{
+                sh 'npm start'
+            }
+        }*/
     }
 }
