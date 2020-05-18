@@ -6,6 +6,13 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 
+#test
+FROM node:alpine AS websiteDocker
+WORKDIR /app
+COPY . .
+RUN npm install 
+RUN npm run build
+
 #copy the project files and build our release
 COPY . ./
 RUN dotnet publish -c Release -o out
@@ -15,4 +22,4 @@ FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
 WORKDIR /app
 EXPOSE 80
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "project_API2.dll"]
+ENTRYPOINT ["dotnet", "Project_API2.dll"]
