@@ -28,6 +28,7 @@ export class ShowdataComponent implements OnInit {
 
   ngOnInit() {
     this.dataSvc.getLands().subscribe(land => {
+      console.log("test");
       this.dataArrayLand = land;
     })
     this.dataSvc.getUsers().subscribe(user => {

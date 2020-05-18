@@ -13,29 +13,29 @@ export class OwnApiService {
   constructor(private _http: HttpClient) { }
 
   getLands(): Observable<RootLand> {
-    return this._http.get<RootLand>("http://localhost:53438/api/v2/land");
+    return this._http.get<RootLand>("http://localhost:5000/api/v2/land");
   }
   getUsers(): Observable<RootUser> {
-    return this._http.get<RootUser>("http://localhost:53438/api/v2/user");
+    return this._http.get<RootUser>("http://localhost:5000/api/v2/user");
   }
 
   addLand(land: RootLand): Observable<RootLand> {
     console.log(land);
-    return this._http.post<RootLand>("http://localhost:53438/api/v2/land", land);
+    return this._http.post<RootLand>("http://localhost:5000/api/v2/land", land);
   }
   addUser(User: RootUser): Observable<RootUser> {
     console.log(User);
-    return this._http.post<RootUser>("http://localhost:53438/api/v2/user", User);  
+    return this._http.post<RootUser>("http://localhost:5000/api/v2/user", User);  
   }
 
   delLand(id: number) {
     console.log(id);
-    return this._http.delete("http://localhost:53438/api/v2/user")
+    return this._http.delete("http://localhost:5000/api/v2/user")
   }
   delUser(id: number) {
     console.log(id);
-    console.log("http://localhost:53438/api/v2/user/" + id);
-    return this._http.delete("http://localhost:53438/api/v2/user/" + id);
+    console.log("http://localhost:5000/api/v2/user/" + id);
+    return this._http.delete("http://localhost:5000/api/v2/user/" + id);
   }
   info: RootLand;
   info2: RootUser;

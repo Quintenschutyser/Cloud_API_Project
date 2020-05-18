@@ -6,12 +6,14 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 
-#test
+#Install node
 FROM node:alpine AS websiteDocker
 WORKDIR /app
 COPY . .
 RUN npm install 
-RUN npm run build
+
+#intall .net
+FROM micr
 
 #copy the project files and build our release
 COPY . ./
