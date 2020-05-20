@@ -18,10 +18,13 @@ pipeline {
             }
         }
         stage('Run ansible playbook'){
-            steps{
-                sh 'sudo cd /DevOps/Examen/Jenkins/workspace/Examen with pipeline'
-                sh 'sudo ansible-playbook FirstPB.yml'
-            }
+            sh script: '
+                echo "start dir: pwd"
+            '
+            // steps{
+            //     sh 'sudo cd /DevOps/Examen/Jenkins/workspace/Examen with pipeline'
+            //     sh 'sudo ansible-playbook FirstPB.yml'
+            // }
         }
         /*stage('start'){
             steps{
