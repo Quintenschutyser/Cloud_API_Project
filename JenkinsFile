@@ -19,8 +19,8 @@ pipeline {
         }
         stage('Run ansible playbook'){
             steps{
-                sh 'cd /DevOps/Examen/Jenkins/workspace/Examen with pipeline'
-                sh 'ansible-playbook FirstPB.yml'
+                sh 'sudo cd /DevOps/Examen/Jenkins/workspace/Examen with pipeline'
+                sh 'sudo ansible-playbook FirstPB.yml'
             }
         }
         /*stage('start'){
