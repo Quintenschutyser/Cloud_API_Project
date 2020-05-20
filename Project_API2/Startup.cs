@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Project_API2.Model;
+using System.Net.Http;
 
 namespace Project_API2
 {
@@ -28,10 +29,9 @@ namespace Project_API2
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-
             services.AddDbContext<LibraryContext>(
-                options => options.UseSqlServer(
-                    Configuration.GetConnectionString("defaultConnection")
+                options => options
+                    .UseSqlServer(Configuration.GetConnectionString("defaultConnection")
                 )
             );
         }

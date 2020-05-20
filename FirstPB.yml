@@ -1,0 +1,11 @@
+---
+- hosts: PC
+  remote_user: root
+  tasks:
+  - name: test connection
+    ping:
+
+  # - name: install epel-release
+  #   yum:
+  #     name: epel-release
+  #     state: latest
