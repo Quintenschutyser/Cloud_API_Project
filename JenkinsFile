@@ -16,20 +16,16 @@ pipeline {
             steps {
                 sh 'npm install'
             }
-        }
-        stage('Run ansible playbook'){
-            steps{
-                sh "ansible-playbook FirstPB.yml"
-            }            
-            // steps{
-            //     sh 'sudo cd /DevOps/Examen/Jenkins/workspace/Examen with pipeline'
-            //     sh 'sudo ansible-playbook FirstPB.yml'
-            // }
-        }
+        }        
         /*stage('start'){
             steps{
                 sh 'npm start'
             }
         }*/
+    }
+    stage('Run ansible playbook'){
+        steps{
+            sh 'ansible-playbook FirstPB.yml'
+        }     
     }
 }
