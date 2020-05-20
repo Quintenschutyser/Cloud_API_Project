@@ -1,9 +1,13 @@
 ---
-- hosts: PC
+- hosts: EXAM
   remote_user: root
   tasks:
   - name: test connection
     ping:
+  - name: move to Dir
+    command: pwd
+    command: cd /DevOps/Examen/Jenkins/workspace/ 
+    command: pwd
 
   # - name: install epel-release
   #   yum:
