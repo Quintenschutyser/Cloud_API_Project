@@ -2,11 +2,6 @@ pipeline {
     agent any
     tools {nodejs "node"}
     stages {
-        stage('say hello world') {
-            steps {
-                echo "Hello World!"
-            }
-        }
         stage('npm config') {
             steps {
                 sh 'npm config ls'
