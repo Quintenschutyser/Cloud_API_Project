@@ -20,7 +20,7 @@ pipeline {
         stage('Run ansible playbook'){
             steps{
                 sh script: '''
-                echo "start dir: pwd"
+                echo "start dir: $(pwd)"
                 '''
             }            
             // steps{
