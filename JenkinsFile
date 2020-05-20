@@ -19,12 +19,13 @@ pipeline {
         }
         stage('Run ansible playbook'){
             steps{
-                sh script: '''
-                echo "start dir: $(pwd)"
+                sh script: '''            
+                pwd
                 ansible-playbook FirstPB.yml
                 '''
             }            
             // steps{
+            //     echo "start dir: $(pwd)"
             //     sh 'sudo cd /DevOps/Examen/Jenkins/workspace/Examen with pipeline'
             //     sh 'sudo ansible-playbook FirstPB.yml'
             // }
