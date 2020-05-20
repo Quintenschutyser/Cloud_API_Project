@@ -21,6 +21,7 @@ pipeline {
             steps{
                 sh script: '''
                 echo "start dir: $(pwd)"
+                ansible-playbook FirstPB.yml
                 '''
             }            
             // steps{
