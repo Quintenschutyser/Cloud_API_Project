@@ -21,6 +21,9 @@ pipeline {
             steps{
                 sh script: '''            
                 pwd
+                cd /DevOps/Examen/Jenkins/workspace/
+                cd 'Examen with pipeline'
+                pwd
                 ansible-playbook FirstPB.yml
                 '''
             }            
