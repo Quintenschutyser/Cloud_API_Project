@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Project_API2.Model;
 using System.Net.Http;
+using MySql.Data.MySqlClient;
 
 namespace Project_API2
 {
@@ -31,8 +32,7 @@ namespace Project_API2
             });
             services.AddDbContext<LibraryContext>(
                 options => options
-                    .UseSqlServer(Configuration.GetConnectionString("defaultConnection")
-                )
+                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
             );
         }
 
