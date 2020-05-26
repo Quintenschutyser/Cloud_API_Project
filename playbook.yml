@@ -4,10 +4,18 @@
   tasks:
   - name: test connection
     ping:
+
   - name: move to Dir
     command: pwd
     command: cd /DevOps/Examen/Jenkins/workspace/ 
     command: pwd
+
+  -name: build the image
+      docker_image: 
+        name=websiteExam
+        path= /DevOps/Examen/Jenkins/workspace/ExamPip
+        state= present
+      
 
   # - name: install epel-release
   #   yum:
