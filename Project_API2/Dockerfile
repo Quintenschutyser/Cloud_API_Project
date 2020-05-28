@@ -1,19 +1,19 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS websiteAPI
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /app
 
-# Copy csproj and restore as distinct layers
 COPY *.csproj ./
 RUN dotnet restore
 
-# Copy everything else and build
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS runtime
+
 WORKDIR /app
-COPY --from=websiteAPI /app/out .
-ENTRYPOINT ["dotnet", "aspnetcoreapp.dll"]
+
+COPY --from=build /app/out .
+
+ENTRYPOINT ["dotnet", "core-api.dll"]
 
 # FROM node:12.7-alpine AS websiteAPI
 # WORKDIR /app
