@@ -1,12 +1,28 @@
-FROM node:12.7-alpine AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2 AS websiteAPI
 WORKDIR /app
-COPY package.json ./
-RUN npm install
-COPY . .
-RUN npm run build --prod
 
-FROM nginx:alpine
-COPY --from=build /app/dist/* usr/share/nginx/html
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
+WORKDIR /app
+COPY --from=websiteAPI /app/out .
+ENTRYPOINT ["dotnet", "aspnetcoreapp.dll"]
+
+# FROM node:12.7-alpine AS websiteAPI
+# WORKDIR /app
+# COPY package.json ./
+# RUN npm install
+# RUN npm run build --prod
+
+# FROM nginx:alpine
+# COPY --from=websiteAPI /app/dist/* usr/share/nginx/html
 
 #COPY --from=my-app-build /dist/* /usr/share/nginx/html
 
