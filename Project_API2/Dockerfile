@@ -6,6 +6,12 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
 
+#Add NPM commands
+FROM node:alpine AS my-app-build
+WORKDIR /app
+COPY . .
+RUN npm install && npm run build
+
 #copy the project files and build our release
 COPY . ./
 RUN dotnet publish -c Release -o out
