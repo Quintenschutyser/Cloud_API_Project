@@ -1,14 +1,14 @@
-FROM node:alpine AS websiteExam
+FROM node:12.7-alpine AS build
 WORKDIR /app
+COPY package.json ./
+RUN npm install
 COPY . .
-RUN npm install 
-RUN npm run build
-
-# stage 2
+RUN npm run build --prod
 
 FROM nginx:alpine
-COPY --from=websiteExam /app/dist/app-to-run-inside-docker /usr/share/nginx/html
-EXPOSE 80
+COPY --from=build /app/dist/* usr/share/nginx/html
+
+#COPY --from=my-app-build /dist/* /usr/share/nginx/html
 
 # #krijg de basis van Microsoft
 # FROM mcr.Microsoft.com/dotnet/core/sdk:2.2 AS build-env
