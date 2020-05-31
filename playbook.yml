@@ -1,22 +1,24 @@
 ---
 - hosts: EXAM
   remote_user: root
+  become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
   - name: test connection
     ping:
 
-  - name: move to Dir
-    command: pwd
-    command: cd /DevOps/Examen/Jenkins/workspace/ 
-    command: pwd
+  - name: install Pip
+    apt:  name=python-pip state=present
+
+  - name: isntall docker-py
+    pip: name=docker-py
 
   - name: build the image
     docker_image: 
       name: websiteExam
       path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
-      
+      state: build
 
   # - name: install epel-release
   #   yum:
