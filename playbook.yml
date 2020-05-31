@@ -15,7 +15,7 @@
   - name: build the image
     docker_image: 
       name: websiteExam
-      path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2
+      path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
       
 
   # - name: install epel-release
