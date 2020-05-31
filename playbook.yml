@@ -1,19 +1,17 @@
 ---
 - hosts: EXAM  
+  become: yes
+  become_user: root 
   vars:
     ansible_python_interpreter: /usr/bin/python3
   tasks:
   - name: test connection
     ping:
 
-  - name: install Pip
-    become: yes
-    become_user: root  
+  - name: install Pip     
     apt:  name=python-pip state=present
 
   - name: install docker-py
-    become: yes
-    become_user: root 
     pip: name=docker-py
 
   - name: build the image
