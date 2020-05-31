@@ -14,12 +14,12 @@
 
   - name: build the image
     docker_image: 
-      name: websiteExam
+      name: websitee
       path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
       state: build
   - name: Running the container
     docker_container:
-      image: websiteExam:latest
+      image: website:latest
       path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
       state: running
 
