@@ -14,16 +14,17 @@
 
   - name: build the image
     docker_image: 
-      name: websitee
+      name: website
+      tag: v1
       path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
       state: build
-  - name: Running the container
-    docker_container:
-      image: website:latest
-      path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
-      state: running
-
-  # - name: install epel-release
-  #   yum:
-  #     name: epel-release
-  #     state: latest
+  - name: build image with cmd
+    command: docker run -d --name websiteonly -p80:80 website:v1
+  #Dit geeft een error dat er parameter missen
+  # - name: Running the container
+  #   docker_container:
+  #     image: website:latest
+  #     path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
+  #     state: running
+  - name: run docker image
+    command: docker run -d --name websiteOnly -p 80:80 website

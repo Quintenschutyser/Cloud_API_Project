@@ -2,29 +2,24 @@ pipeline {
     agent any
     tools {nodejs "node"}
     stages {
-        stage('npm config') {
-            steps {
-                sh 'npm config ls'
-            }
-        }
+        // stage('npm config') {
+        //     steps {
+        //         sh 'npm config ls'
+        //     }
+        // }
         stage('Checkout'){
             steps{
                 git branch: 'DevOps', url: 'https://github.com/Quintenschutyser/Cloud_API_Project.git'
             }
         }
-        stage('Install dependencies'){
-            steps {
-                sh 'npm install'
-            }
-        }        
-        /*stage('start'){
-            steps{
-                sh 'npm start'
-            }
-        }*/
+        // stage('Install dependencies'){
+        //     steps {
+        //         sh 'npm install'
+        //     }
+        // } 
         stage('Run ansible playbook'){
             steps{
-                sh 'ansible-playbook FirstPB.yml'
+                sh 'ansible-playbook playbook.yml'
             }     
         }  
     }    
