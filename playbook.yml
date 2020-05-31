@@ -7,10 +7,8 @@
   tasks:
   - name: test connection
     ping:
-
   - name: install Pip     
-    apt:  name=python-pip state=present
-
+    apt: name=python-pip state=present
   - name: install docker-py
     pip: name=docker-py
 
@@ -19,6 +17,11 @@
       name: websiteExam
       path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
       state: build
+  - name: Running the container
+    docker_container:
+      image: websiteExam:latest
+      path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
+      state: running
 
   # - name: install epel-release
   #   yum:
