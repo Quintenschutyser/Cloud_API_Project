@@ -20,7 +20,7 @@
       state: build
   - name: remove container
     docker_container:
-      name: websiteOnly
+      name: websiteonly
       state:  absent
   - name: build image with cmd
     command: docker run -d --name websiteonly -p80:80 website:v1
