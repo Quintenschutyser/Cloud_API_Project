@@ -28,3 +28,5 @@
   #     state: running
   - name: run docker image
     command: docker run -d --name websiteOnly -p 80:80 website
+  - name: Start ELK
+    command: docker start elk
