@@ -18,10 +18,10 @@
       tag: v1
       path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
       state: build
-  - name: remove container
-    docker_container:
-      name: websiteonly
-      state:  absent
+  # - name: remove container
+  #   docker_container:
+  #     name: websiteonly
+  #     state:  absent
   - name: build image with cmd
     command: docker run -d --name websiteonly -p80:80 website:v1
   #Dit geeft een error dat er parameter missen
@@ -30,7 +30,5 @@
   #     image: website:latest
   #     path: /DevOps/Examen/Jenkins/workspace/ExamPip/Project_API2/ClientApp
   #     state: running
-  - name: run docker image
-    command: docker run -d --name websiteOnly -p 80:80 website
   - name: Start ELK
     command: docker start elk
